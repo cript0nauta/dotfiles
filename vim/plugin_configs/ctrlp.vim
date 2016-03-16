@@ -1,4 +1,4 @@
-if PluginIsInstalled('ctrlp.vim')
+if g:PluginIsInstalled('ctrlp.vim')
     let g:ctrlp_map = ',e'
 
     function! CtrlPWithSearchText(search_text, ctrlp_command_end)

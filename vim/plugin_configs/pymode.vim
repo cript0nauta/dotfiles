@@ -1,4 +1,4 @@
-if PluginIsInstalled('python-mode')
+if g:PluginIsInstalled('python-mode')
     " don't use linter, we use syntastic for that
     let g:pymode_lint_on_write = 0
     let g:pymode_lint_signs = 0

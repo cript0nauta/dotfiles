@@ -55,23 +55,23 @@ map <C-l> <C-W>l
 
 " Mover las líneas con las flechas en el modo visual
 " y duplicar con D
-if PluginIsInstalled('dragvisuals.vim')
+if g:PluginIsInstalled('dragvisuals.vim')
     vmap <expr> <UP> DVB_Drag('up')
     vmap <expr> <DOWN> DVB_Drag('down')
     vmap <expr> D DVB_Duplicate()
 endif
 
-if PluginIsInstalled('FixedTaskList.vim')
+if g:PluginIsInstalled('FixedTaskList.vim')
     map <F2> :TaskList<CR>
 endif
 
-if PluginIsInstalled('nerdtree')
+if g:PluginIsInstalled('nerdtree')
     map <F3> :NERDTreeToggle<CR>
     nmap ,t :NERDTreeFind<CR>
 endif
 
-if PluginIsInstalled('ctrlp.vim')
-    if PluginIsInstalled('vim-ctrlp-cmdpalette')
+if g:PluginIsInstalled('ctrlp.vim')
+    if g:PluginIsInstalled('vim-ctrlp-cmdpalette')
         " commands finder mapping
         nmap ,c :CtrlPCmdPalette<CR>
     endif
@@ -101,23 +101,23 @@ if PluginIsInstalled('ctrlp.vim')
     nmap ,wc :call CtrlPWithSearchText(expand('<cword>'), 'CmdPalette')<CR>
 endif
 
-if PluginIsInstalled('python-mode')
+if g:PluginIsInstalled('python-mode')
     let g:pymode_rope_goto_definition_bind = ',d'
     nmap ,D :tab split<CR>:PymodePython rope.goto()<CR>
     nmap ,o :RopeFindOccurrences<CR>
 endif
 
-if PluginIsInstalled('tabman.vim')
+if g:PluginIsInstalled('tabman.vim')
     " mappings to toggle display, and to focus on it
     let g:tabman_toggle = 'tl'
     let g:tabman_focus  = 'tf' 
 endif
 
-if PluginIsInstalled('vim-choosewin')
+if g:PluginIsInstalled('vim-choosewin')
     nmap - <Plug>(choosewin)
 endif
 
-if PluginIsInstalled('git-vim')
+if g:PluginIsInstalled('git-vim')
     nmap <Leader>gP :GitPush<CR>
 endif
 
