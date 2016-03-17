@@ -97,8 +97,8 @@ Plugin 'matchit.zip'
 " Plugin 'pydocstring.vim'
 
 " Colorscheme 
-" TODO: buscar mejores
-Plugin 'altercation/vim-colors-solarized'
+" Plugin 'altercation/vim-colors-solarized'
+Plugin 'flazz/vim-colorschemes'
 
 " Muy útil
 " TODO: ver incsearch

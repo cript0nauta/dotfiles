@@ -1,9 +1,8 @@
 " use 256 colors when possible
 if &term =~? 'mlterm\|xterm\|xterm-256\|screen-256'
 	let &t_Co = 256
-    " set background=dark
-    " colorscheme solarized
-    colorscheme delek
+    set background=dark
+    colorscheme Tomorrow-Night
 else
     colorscheme delek
 endif
@@ -13,6 +12,7 @@ endif
 " if has('gui_running')
 "     colorscheme wombat
 " endif
+
 
 if g:PluginIsInstalled('vim-signify')
     highlight DiffAdd           cterm=bold ctermbg=none ctermfg=119
