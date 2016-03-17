@@ -35,6 +35,9 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
+" Algún plugin mapea la tecla enter en modo normal a C-a, quito esto
+unmap <CR>
+
 " TODO: Moverse entre ventanas/paneles
 
 " Comment this line to enable autocompletion preview window

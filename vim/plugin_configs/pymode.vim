@@ -1,6 +1,7 @@
 if g:PluginIsInstalled('python-mode')
-    " don't use linter, we use syntastic for that
-    let g:pymode_lint_on_write = 0
+    " Chequear el código con lint en cada write
+    let g:pymode_lint_on_write = 1
+    " let g:pymode_lint_on_fly = 1
     let g:pymode_lint_signs = 0
 
     " don't fold python code on open
@@ -12,4 +13,7 @@ if g:PluginIsInstalled('python-mode')
     " open definitions on same window, and custom mappings for definitions and
     " occurrences
     let g:pymode_rope_goto_definition_cmd = 'e'
+
+    " Usar también lint
+    let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe', 'pylint']
 endif

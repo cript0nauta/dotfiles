@@ -2,12 +2,12 @@
 ca w!! w !sudo tee "%"
 
 " Automáticamente editar ficheros en modeo read-only si ya existe un swap
-augroup NoSimultaneousEdits
-    autocmd!
-    autocmd SwapExists * let v:swapchoice = 'o'
-    autocmd SwapExists * echomsg ErrorMsg
-    autocmd SwapExists * echo 'Sesión duplicada, abriendo en modo solo lectura'
-augroup END
+" augroup NoSimultaneousEdits
+"     autocmd!
+"     autocmd SwapExists * let v:swapchoice = 'o'
+"     autocmd SwapExists * echomsg ErrorMsg
+"     autocmd SwapExists * echo 'Sesión duplicada, abriendo en modo solo lectura'
+" augroup END
 
 " Recargar el vimrc cada vez que se guarda
 autocmd BufWritePost $MYVIMRC source $MYVIMRC
