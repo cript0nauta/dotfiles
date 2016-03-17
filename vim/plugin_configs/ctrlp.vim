@@ -13,5 +13,5 @@ if g:PluginIsInstalled('ctrlp.vim')
       \ 'dir':  '\v[\/](\.git|\.hg|\.svn)$',
       \ 'file': '\.pyc$\|\.pyo$',
       \ }
-endfunction
+endif
 
