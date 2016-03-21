@@ -7,13 +7,13 @@ if g:PluginIsInstalled('python-mode')
     " don't fold python code on open
     let g:pymode_folding = 1
 
-    " don't load rope by default. Change to 1 to use rope
-    let g:pymode_rope = 0
+    " cargo rope para tener un autocompletado excelente
+    let g:pymode_rope = 1
 
     " open definitions on same window, and custom mappings for definitions and
     " occurrences
     let g:pymode_rope_goto_definition_cmd = 'e'
 
-    " Usar también lint
-    let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe', 'pylint']
+    " Usar también lint y pep257
+    let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe', 'pylint', 'pep257']
 endif
