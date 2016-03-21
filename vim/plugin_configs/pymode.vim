@@ -5,7 +5,7 @@ if g:PluginIsInstalled('python-mode')
     let g:pymode_lint_signs = 0
 
     " don't fold python code on open
-    let g:pymode_folding = 1
+    let g:pymode_folding = 0
 
     " cargo rope para tener un autocompletado excelente
     let g:pymode_rope = 1
