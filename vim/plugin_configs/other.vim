@@ -24,6 +24,13 @@ function! s:config_vim_choosewin()
     let g:choosewin_overlay_enable = 1
 endfunction
 
+function! s:config_neocomplete_vim()
+    let g:neocomplete#enable_at_startup = 1
+endfunction
+
+function! s:config_vim_ledger()
+    let g:ledger_maxwidth = 80
+endfunction
 
 for plugin in g:installed_plugins 
     let funcname = 's:config_' . tolower(substitute(plugin, '[-\.]', '_', 'g'))

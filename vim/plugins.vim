@@ -38,6 +38,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'mattn/emmet-vim'
 
 " Git integration
+" TODO: ver el de tpope que parece mejor
 Plugin 'motemen/git-vim'
 
 " Class/module browser
@@ -56,21 +57,22 @@ Plugin 'tpope/vim-surround'
 Plugin 'Townk/vim-autoclose'
 
 " Indent text object
-" TODO: Probarlo
 Plugin 'michaeljsmith/vim-indent-object'
 
 " Python mode (indentation, doc, refactor, lints, code checking, motion and
 " operators, highlighting, run and ipdb breakpoints)
-" TODO: ver ventajas y desventajas
 Plugin 'klen/python-mode'
 
-" Better autocompletion
-" TODO: ver los de fisa
-Plugin 'Shougo/neocomplcache.vim'
+" Autocompletado inteligente 
+" Plugin 'Shougo/neocomplete.vim'
+
+" y snippets para este
+" Plugin 'Shougo/neosnippet'
+" Plugin 'Shougo/neosnippet-snippets'
 
 " Snippets manager (ultisnips), dependencies, and snippets repo
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
+" Plugin 'MarcWeber/vim-addon-mw-utils'
+" Plugin 'tomtom/tlib_vim'
 Plugin 'honza/vim-snippets'
 " TODO: datos de autor, github, etc
 Plugin 'SirVer/ultisnips'
@@ -81,8 +83,8 @@ Plugin 'mhinz/vim-signify'
 " Drag visual blocks arround
 Plugin 'fisadev/dragvisuals.vim'
 
-Plugin 'scrooloose/syntastic'
-" Paint css colors with the real color
+" Code checker, lo desactivo porque tengo pymode
+" Plugin 'scrooloose/syntastic'
 
 " Paint css colors with the real color
 Plugin 'lilydjwg/colorizer'
@@ -110,11 +112,17 @@ Plugin 'tpope/vim-repeat'
 " Comentar código
 Plugin 'tpope/vim-commentary'
 
+" Soporte para typescript
+Plugin 'leafgarland/typescript-vim'
+
+" Soporte para ledger
+Plugin 'ledger/vim-ledger'
+
 " Tomar notas en RestructuredText
 " Funciona medio mal y es bastante intrusivo
 " Además puede ser inseguro 
-Plugin 'Rykka/riv.vim'
-Plugin 'Rykka/InstantRst'
+" Plugin 'Rykka/riv.vim'
+" Plugin 'Rykka/InstantRst'
 let g:instant_rst_localhost_only=1
 
 " ============================================================================

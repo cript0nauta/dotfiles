@@ -1,4 +1,4 @@
-if g:PluginIsInstalled('dragvisuals.vim')
+if g:PluginIsInstalled('syntastic')
     " show list of errors and warnings on the current file
     nmap <leader>e :Errors<CR>
 

@@ -17,7 +17,7 @@ map <C-S-Left> :tabp<CR>
 imap <C-S-Left> <ESC>:tabp<CR>
 
 " Habilitar/deshabilitar resultados de búsqueda resaltados
-nnoremap <F4> :set hlsearch!
+nnoremap <F4> :set hlsearch!<CR>
 
 " Uso C-m para incrementar en vez de C-a (lo uso para tmux)
 nnoremap <C-m> <C-a>
