@@ -323,9 +323,8 @@ nnoremap <C-m> <C-a>
 " Expandir %% a la ruta del directorio actual {{{
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 " }}}
-" Buscar con Space y Ctril-Space para búsqueda hacia arriba {{{
-map <space> /
-map <c-space> ?
+" Abrir/cerrar folds con <Space> {{{
+nmap <space> za
 " }}}
 " Mejor forma de moverse entre ventanas {{{
 map <C-j> <C-W>j
