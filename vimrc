@@ -234,11 +234,6 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 " }}}
-" tab length exceptions on some file types {{{
-"autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
-"autocmd FileType htmldjango setlocal shiftwidth=2 tabstop=2 softtabstop=2
-"autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2
-" }}}
 " always show status bar {{{
 set ls=2
 " }}}
@@ -297,58 +292,6 @@ endif
 " Defino comandos útiles {{{
 " save as sudo {{{
 ca w!! w !sudo tee "%"
-" }}}
-" Editar ficheros en modeo read-only si ya existe un swap (desactivado) {{{
-" augroup NoSimultaneousEdits
-"     autocmd!
-"     autocmd SwapExists * let v:swapchoice = 'o'
-"     autocmd SwapExists * echomsg ErrorMsg
-"     autocmd SwapExists * echo 'Sesión duplicada, abriendo en modo solo lectura'
-" augroup END
-" }}}
-" Recargar el vimrc cada vez que se guarda {{{
-" Desactivado por problemas con airline
-" autocmd BufWritePost $MYVIMRC source $MYVIMRC
-" }}}
-" Si no existe el directorio de un fichero preguntar por su creación {{{
-" TODO: creo que no funciona
-function! EnsureDirExists ()
-    let required_dir = expand("%:h")
-    if !isdirectory(required_dir)
-        call AskQuit("Parent directory '" . required_dir . "' doesn't exist.",
-             \       "&Create it\nor &Quit?", 2)
-
-        try
-            call mkdir( required_dir, 'p' )
-        catch
-            call AskQuit("Can't create '" . required_dir . "'",
-            \            "&Quit\nor &Continue anyway?", 1)
-        endtry
-    endif
-endfunction
-augroup AutoMkdir
-    autocmd!
-    autocmd  BufNewFile  *  :call EnsureDirExists()
-augroup END
-" }}}
-" Mostrar páginas de ayuda en una nueva pestaña {{{
-" TODO: Hay veces que no quiero hacer esto. Crear un :helpwin o algo así
-
-let g:help_in_tabs = 1
-
-"Only apply to .txt files...
-augroup HelpInTabs
-    autocmd!
-    autocmd BufEnter  *.txt   call HelpInNewTab()
-augroup END
-
-"Only apply to help files...
-function! HelpInNewTab ()
-    if &buftype == 'help' && g:help_in_tabs
-        "Convert the help window to a tab...
-        execute "normal \<C-W>T"
-    endif
-endfunction
 " }}}
 " }}}
 " Mappings {{{
@@ -479,6 +422,61 @@ endif
 "
 " }}}
 
+" }}}
+" Autocmds {{{
+" tab length exceptions on some file types {{{
+"autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
+"autocmd FileType htmldjango setlocal shiftwidth=2 tabstop=2 softtabstop=2
+"autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2
+" }}}
+" Recargar el vimrc cada vez que se guarda {{{
+" Desactivado por problemas con airline
+" autocmd BufWritePost $MYVIMRC source $MYVIMRC
+" }}}
+" Recargar el vimrc cada vez que se guarda {{{
+" Desactivado por problemas con airline
+" autocmd BufWritePost $MYVIMRC source $MYVIMRC
+" }}}
+" Si no existe el directorio de un fichero preguntar por su creación {{{
+" TODO: creo que no funciona
+function! EnsureDirExists ()
+    let required_dir = expand("%:h")
+    if !isdirectory(required_dir)
+        call AskQuit("Parent directory '" . required_dir . "' doesn't exist.",
+             \       "&Create it\nor &Quit?", 2)
+
+        try
+            call mkdir( required_dir, 'p' )
+        catch
+            call AskQuit("Can't create '" . required_dir . "'",
+            \            "&Quit\nor &Continue anyway?", 1)
+        endtry
+    endif
+endfunction
+augroup AutoMkdir
+    autocmd!
+    autocmd  BufNewFile  *  :call EnsureDirExists()
+augroup END
+" }}}
+" Mostrar páginas de ayuda en una nueva pestaña {{{
+" TODO: Hay veces que no quiero hacer esto. Crear un :helpwin o algo así
+
+let g:help_in_tabs = 1
+
+"Only apply to .txt files...
+augroup HelpInTabs
+    autocmd!
+    autocmd BufEnter  *.txt   call HelpInNewTab()
+augroup END
+
+"Only apply to help files...
+function! HelpInNewTab ()
+    if &buftype == 'help' && g:help_in_tabs
+        "Convert the help window to a tab...
+        execute "normal \<C-W>T"
+    endif
+endfunction
+" }}}
 " }}}
 " Apariencia {{{
 
