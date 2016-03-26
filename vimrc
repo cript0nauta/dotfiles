@@ -223,8 +223,6 @@ endfunction
 " }}}
 " Opciones del editor {{{
 
-" TODO: timeout
-" TODO: search case
 " allow plugins by file type (required for plugins!) {{{
 filetype plugin on
 " }}}
@@ -286,6 +284,14 @@ endif
 if !isdirectory(&undodir)
     call mkdir(&undodir, "p")
 endif
+" }}}
+" Timeout para mappings y otros {{{
+set timeoutlen=300
+" }}}
+" Smart case en las búsquedas{{{
+set ignorecase
+" Si el patrón de búsqueda contiene mayúsculas -> set noignorecase temporal
+set smartcase
 " }}}
 
 " }}}
