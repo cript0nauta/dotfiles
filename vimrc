@@ -235,8 +235,7 @@ set shiftwidth=4
 " always show status bar {{{
 set ls=2
 " }}}
-" incremental search {{{
-" TODO: Documentar qué es esto
+" Mostrar resultados de búsqueda a medida que se introduce el patrón {{{
 set incsearch
 " }}}
 " syntax highlight on {{{
@@ -297,13 +296,12 @@ set smartcase
 " }}}
 " Defino comandos útiles {{{
 " save as sudo {{{
-ca w!! w !sudo tee "%"
+cabbrev w!! w !sudo tee "%"
 " }}}
 " }}}
 " Mappings {{{
 
 " Mappings relacionados a pestañas {{{
-" TODO: invertir ^ y 0
 
 " Mover (izquierda o derecha)
 map tm :tabm 
@@ -325,6 +323,10 @@ nnoremap <F4> :set hlsearch!<CR>
 " }}}
 " Uso C-m para incrementar en vez de C-a (lo uso para tmux) {{{
 nnoremap <C-m> <C-a>
+" }}}
+" Invertir ^ y 0 {{{
+nnoremap ^ 0
+nnoremap 0 ^
 " }}}
 " Expandir %% a la ruta del directorio actual {{{
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
@@ -464,7 +466,6 @@ augroup AutoMkdir
 augroup END
 " }}}
 " Mostrar páginas de ayuda en una nueva pestaña {{{
-" TODO: Hay veces que no quiero hacer esto. Crear un :helpwin o algo así
 
 let g:help_in_tabs = 1
 
@@ -476,7 +477,7 @@ augroup END
 
 "Only apply to help files...
 function! HelpInNewTab ()
-    if &buftype == 'help' && g:help_in_tabs
+    if &buftype == 'help' && g:help_in_tabs && !(exists('t:help_in_tab') && t:help_in_tab)
         "Convert the help window to a tab...
         execute "normal \<C-W>T"
     endif
