@@ -10,7 +10,7 @@ ca w!! w !sudo tee "%"
 " augroup END
 
 " Recargar el vimrc cada vez que se guarda
-autocmd BufWritePost $MYVIMRC source $MYVIMRC
+" autocmd BufWritePost $MYVIMRC source $MYVIMRC
 
 " Si el directorio del fichero abierto no existe preguntar si se quiere rear
 function! EnsureDirExists ()
