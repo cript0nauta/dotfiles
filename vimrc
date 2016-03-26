@@ -59,22 +59,22 @@ Plugin 'majutsushi/tagbar'
 let g:tagbar_autofocus = 1
 " }}}
 " Airline {{{
-Plugin 'bling/vim-airline'
-let g:airline_powerline_fonts = 0
-let g:airline_theme = 'bubblegum'
-let g:airline#extensions#whitespace#enabled = 0
-" to use fancy symbols for airline, uncomment the following lines and use a
-" patched font (more info on the README.rst)
-"if !exists('g:airline_symbols')
-"   let g:airline_symbols = {}
-"endif
-"let g:airline_left_sep = '⮀'
-"let g:airline_left_alt_sep = '⮁'
-"let g:airline_right_sep = '⮂'
-"let g:airline_right_alt_sep = '⮃'
-"let g:airline_symbols.branch = '⭠'
-"let g:airline_symbols.readonly = '⭤'
-"let g:airline_symbols.linenr = '⭡'
+" Plugin 'bling/vim-airline'
+" let g:airline_powerline_fonts = 0
+" let g:airline_theme = 'bubblegum'
+" let g:airline#extensions#whitespace#enabled = 0
+" " to use fancy symbols for airline, uncomment the following lines and use a
+" " patched font (more info on the README.rst)
+" "if !exists('g:airline_symbols')
+" "   let g:airline_symbols = {}
+" "endif
+" "let g:airline_left_sep = '⮀'
+" "let g:airline_left_alt_sep = '⮁'
+" "let g:airline_right_sep = '⮂'
+" "let g:airline_right_alt_sep = '⮃'
+" "let g:airline_symbols.branch = '⭠'
+" "let g:airline_symbols.readonly = '⭤'
+" "let g:airline_symbols.linenr = '⭡'
 " }}}
 " Pending tasks list {{{
 Plugin 'fisadev/FixedTaskList.vim'
@@ -428,13 +428,13 @@ endif
 "autocmd FileType htmldjango setlocal shiftwidth=2 tabstop=2 softtabstop=2
 "autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2
 " }}}
-" Recargar el vimrc cada vez que se guarda {{{
-" Desactivado por problemas con airline
-" autocmd BufWritePost $MYVIMRC source $MYVIMRC
-" }}}
-" Recargar el vimrc cada vez que se guarda {{{
-" Desactivado por problemas con airline
-" autocmd BufWritePost $MYVIMRC source $MYVIMRC
+" Settings locales para el vimrc {{{
+augroup VimrcSettings
+    autocmd!
+    autocmd BufRead $MYVIMRC,vimrc setlocal foldmethod=marker
+    " Re-sourcear al guardar
+    autocmd BufWritePost $MYVIMRC,vimrc source $MYVIMRC
+augroup END
 " }}}
 " Si no existe el directorio de un fichero preguntar por su creación {{{
 " TODO: creo que no funciona
@@ -506,4 +506,3 @@ endif
 " }}}
 
 " }}}
-
