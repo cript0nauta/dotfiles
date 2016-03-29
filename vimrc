@@ -1,3 +1,4 @@
+set rtp+=~/dotfiles/vim
 " Instalación y configuración de plugins y su gestor {{{
 
 " Inicializar vundle {{{
@@ -145,9 +146,11 @@ Plugin 'fisadev/dragvisuals.vim'
 " " don't put icons on the sign column (it hides the vcs status icons of signify)
 " let g:syntastic_enable_signs = 0
 " }}}
-" Paint css colors with the real color {{{
-Plugin 'lilydjwg/colorizer'
-" }}}
+" " Paint css colors with the real color {{{
+" Desactivado porque es muy lento en archivos grandes como los de ayuda. TODO:
+" activar solo para ciertos ficheros, evitar bindear en BufEnter
+" Plugin 'lilydjwg/colorizer'
+" " }}}
 " Search results counter {{{
 "Plugin 'IndexedSearch'
 " }}}
@@ -182,8 +185,8 @@ let g:ledger_maxwidth = 80
 " Tomar notas en RestructuredText {{{
 " Funciona medio mal y es bastante intrusivo
 " Además puede ser inseguro 
-" Plugin 'Rykka/riv.vim'
-" Plugin 'Rykka/InstantRst'
+Plugin 'Rykka/riv.vim'
+Plugin 'Rykka/InstantRst'
 let g:instant_rst_localhost_only=1
 " }}}
 " }}}
@@ -342,6 +345,16 @@ map <C-l> <C-W>l
 " }}}
 " Algún plugin mapea la tecla enter en modo normal a C-a, quito esto {{{
 unmap <CR>
+" }}}
+" Invertir "" y "+ {{{
+" Uso bastante la función de usar el registro del clipboard ("+). Si a los
+" mappings que los utilizan no se les pasa ningún registro utilizan el unnamed
+" ("") por lo que es poco probable que lo utilice de forma explícita.
+" También mapeo "' a "* (el registro del clipboard de X11)
+nnoremap "" "+
+nnoremap "+ ""
+vnoremap "" "+
+vnoremap "+ ""
 " }}}
 
 " Comment this line to enable autocompletion preview window
