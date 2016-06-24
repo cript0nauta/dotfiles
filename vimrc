@@ -77,6 +77,9 @@ let g:tagbar_autofocus = 1
 " "let g:airline_symbols.readonly = '⭤'
 " "let g:airline_symbols.linenr = '⭡'
 " }}}
+" Powerline {{{
+Bundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+" }}}
 " Pending tasks list {{{
 Plugin 'fisadev/FixedTaskList.vim'
 " }}}
@@ -95,8 +98,10 @@ Plugin 'michaeljsmith/vim-indent-object'
 " (indentation, doc, refactor, lints, code checking, motion and
 " operators, highlighting, run and ipdb breakpoints)
 Plugin 'klen/python-mode'
+" Uso python 3 por defecto
+let g:python_version = 'python3'
 " Chequear el código con lint en cada write
-let g:pymode_lint_on_write = 1
+let g:pymode_lint_on_write = 0
 " let g:pymode_lint_on_fly = 1
 let g:pymode_lint_signs = 0
 
@@ -104,7 +109,9 @@ let g:pymode_lint_signs = 0
 let g:pymode_folding = 0
 
 " cargo rope para tener un autocompletado excelente
-let g:pymode_rope = 1
+" lo comento porque parece no se para nada excelente
+" let g:pymode_rope = 1
+let g:pymode_rope_complete_on_dot = 0  " Esto rompe todo!
 
 " open definitions on same window, and custom mappings for definitions and
 " occurrences
@@ -164,6 +171,8 @@ Plugin 'matchit.zip'
 " Colorschemes {{{
 " Plugin 'altercation/vim-colors-solarized'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'chriskempson/base16-vim'
+let base16colorspace=256
 " }}}
 " Muy útil para moverse mejor {{{
 " TODO: ver incsearch
@@ -496,10 +505,18 @@ function! HelpInNewTab ()
     endif
 endfunction
 " }}}
+" Uso los .hbs como html {{{
+" TODO: Buscar plugins que lo manejen
+augroup EmberHBS
+    autocmd!
+    autocmd BufRead *.hbs set ft=html
+augroup end
+" }}}
+
 " }}}
 " Apariencia {{{
 
-" use 256 colors when possible {{{
+" Setear colorscheme. usar 256 colores cuando sea posible{{{
 if &term =~? 'mlterm\|xterm\|xterm-256\|screen-256'
 	let &t_Co = 256
     set background=dark
