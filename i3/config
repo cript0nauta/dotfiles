@@ -27,7 +27,8 @@ font pango:DejaVu Sans Mono 11
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec xfce4-terminal
+# bindsym $mod+Return exec xfce4-terminal
+bindsym $mod+Return exec termite
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -157,8 +158,19 @@ bar {
         status_command i3status
 }
 
-bindsym $mod+shift+x exec i3lock 
+bindsym $mod+shift+x exec i3lock-fancy
 
+exec --no-startup-id xbindkeys
+exec --no-startup-id nm-applet
+exec --no-startup-id xautolock -time 5 -locker /usr/bin/i3lock-fancy -detectsleep
+
+# Si trato de cambiar de Workspace al que se está usando actualmente, cambio
+# al último workspace en perder foco
 workspace_auto_back_and_forth yes
+
+# Cuando se crea una nuva ventana automáticamente me muevo al workspace en el que
+# está y la enfoco
+focus_on_window_activation focus
+
 bindsym $mod+Shift+a exec "keepass -auto-type-selected"
 workspace_layout stacking
