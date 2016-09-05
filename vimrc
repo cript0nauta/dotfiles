@@ -111,6 +111,7 @@ let g:pymode_folding = 0
 " cargo rope para tener un autocompletado excelente
 " lo comento porque parece no se para nada excelente
 " let g:pymode_rope = 1
+let g:pymode_rope = 0
 let g:pymode_rope_complete_on_dot = 0  " Esto rompe todo!
 
 " open definitions on same window, and custom mappings for definitions and
@@ -190,6 +191,9 @@ Plugin 'leafgarland/typescript-vim'
 " Soporte para ledger {{{
 Plugin 'ledger/vim-ledger'
 let g:ledger_maxwidth = 80
+" }}}
+" Soporte para Elm {{{
+Plugin 'lambdatoast/elm.vim'
 " }}}
 " Tomar notas en RestructuredText {{{
 " Funciona medio mal y es bastante intrusivo
