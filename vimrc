@@ -185,23 +185,21 @@ Plugin 'tpope/vim-repeat'
 " Comentar código {{{
 Plugin 'tpope/vim-commentary'
 " }}}
-" Soporte para typescript {{{
-Plugin 'leafgarland/typescript-vim'
-" }}}
 " Soporte para ledger {{{
 Plugin 'ledger/vim-ledger'
 let g:ledger_maxwidth = 80
 " }}}
 " Soporte para Elm {{{
-Plugin 'lambdatoast/elm.vim'
+" Plugin 'lambdatoast/elm.vim'
+Plugin 'elmcast/elm-vim'
 " }}}
-" Tomar notas en RestructuredText {{{
-" Funciona medio mal y es bastante intrusivo
-" Además puede ser inseguro 
-Plugin 'Rykka/riv.vim'
-Plugin 'Rykka/InstantRst'
-let g:instant_rst_localhost_only=1
-" }}}
+" " Tomar notas en RestructuredText {{{
+" " Funciona medio mal y es bastante intrusivo
+" " Además puede ser inseguro 
+" Plugin 'Rykka/riv.vim'
+" Plugin 'Rykka/InstantRst'
+" let g:instant_rst_localhost_only=1
+" " }}}
 " }}}
 " Finalizo definición de plugins {{{
 call vundle#end()
