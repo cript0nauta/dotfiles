@@ -7,6 +7,22 @@
 # time that oh-my-zsh is loaded.
 ZSH_THEME="bullet-train"
 
+BULLETTRAIN_PROMPT_ORDER=(
+  time
+  status
+  custom
+  # context
+  dir
+  perl
+  ruby
+  virtualenv
+  # nvm
+  go
+  git
+  hg
+  cmd_exec_time
+)
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
