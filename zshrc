@@ -22,6 +22,8 @@ BULLETTRAIN_PROMPT_ORDER=(
   hg
   cmd_exec_time
 )
+BULLETTRAIN_VIRTUALENV_FG=black
+BULLETTRAIN_DIR_FG=black
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
