@@ -1,0 +1,35 @@
+# Increase volume
+"pamixer --increase 5"
+    XF86AudioRaiseVolume
+
+# Decrease volume
+"pamixer --decrease 5"
+    XF86AudioLowerVolume
+
+# Mute
+"pactl set-sink-mute 1 toggle"
+    XF86AudioMute
+
+# Mic mute
+"amixer set Capture toggle"
+    XF86AudioMicMute
+
+# Less backlight
+"xbacklight -dec 5"
+    XF86MonBrightnessDown
+
+# More backlight
+"xbacklight -inc 5"
+    XF86MonBrightnessUp
+
+# Display settings
+"arandr"
+    XF86Display
+
+# Pavucontrol on tools key
+"pavucontrol"
+    XF86Tools
+
+# PrtSc
+"/usr/bin/xfce4-screenshooter"
+    Print

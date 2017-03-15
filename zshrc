@@ -87,3 +87,5 @@ source /usr/bin/virtualenvwrapper.sh
 # Recargar completado de comandos
 # Obtenido de https://bbs.archlinux.org/viewtopic.php?id=175388
 # zstyle ':completion:*' rehash true
+source /usr/local/bin/activate.sh
+autoenv_init
