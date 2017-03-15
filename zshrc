@@ -1,11 +1,29 @@
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/criptonauta/.oh-my-zsh
+  export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="bullet-train"
+
+BULLETTRAIN_PROMPT_ORDER=(
+  time
+  status
+  custom
+  # context
+  dir
+  perl
+  ruby
+  virtualenv
+  # nvm
+  go
+  git
+  hg
+  cmd_exec_time
+)
+BULLETTRAIN_VIRTUALENV_FG=black
+BULLETTRAIN_DIR_FG=black
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -87,5 +105,6 @@ source /usr/bin/virtualenvwrapper.sh
 # Recargar completado de comandos
 # Obtenido de https://bbs.archlinux.org/viewtopic.php?id=175388
 # zstyle ':completion:*' rehash true
+export EDITOR=vim
 source /usr/local/bin/activate.sh
 autoenv_init
