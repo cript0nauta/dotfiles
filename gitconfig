@@ -6,6 +6,7 @@
 [core]
         # excludesfile = ~/.gitignore
         editor = vim
+	excludesfile = ~/.gitignore
 # [apply]
 #         whitespace = nowarn
 [help]
