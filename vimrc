@@ -31,22 +31,28 @@ Plugin 'gmarik/vundle'
 Plugin 'scrooloose/nerdtree'
 let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
 " }}}
-" ctrlp: Code and files fuzzy finder {{{
-Plugin 'kien/ctrlp.vim'
-let g:ctrlp_map = ',e'
+" " ctrlp: Code and files fuzzy finder {{{
+" Plugin 'kien/ctrlp.vim'
+" let g:ctrlp_map = ',e'
 
-function! CtrlPWithSearchText(search_text, ctrlp_command_end)
-    execute ':CtrlP' . a:ctrlp_command_end
-    call feedkeys(a:search_text)
-endfunction
+" function! CtrlPWithSearchText(search_text, ctrlp_command_end)
+"     execute ':CtrlP' . a:ctrlp_command_end
+"     call feedkeys(a:search_text)
+" endfunction
 
-" don't change working directory
-let g:ctrlp_working_path_mode = 0
-" ignore these files and folders on file finder
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/](\.git|\.hg|\.svn)$',
-  \ 'file': '\.pyc$\|\.pyo$',
-  \ }
+" " don't change working directory
+" let g:ctrlp_working_path_mode = 0
+" " ignore these files and folders on file finder
+" let g:ctrlp_custom_ignore = {
+"   \ 'dir':  '\v[\/](\.git|\.hg|\.svn)$',
+"   \ 'file': '\.pyc$\|\.pyo$',
+"   \ }
+" " }}}
+" FZF (alternativa a ctrlp) {{{
+Plugin 'junegunn/fzf.vim'
+nmap ,e :GFiles<CR>
+nmap ,b :Buffers<CR>
+nmap ,m :History<CR>
 " }}}
 " Zen coding {{{
 Plugin 'mattn/emmet-vim'
@@ -467,8 +473,8 @@ endif
 augroup VimrcSettings
     autocmd!
     autocmd BufRead $MYVIMRC,vimrc setlocal foldmethod=marker
-    " Re-sourcear al guardar
-    autocmd BufWritePost $MYVIMRC,vimrc source $MYVIMRC
+    " " Re-sourcear al guardar (no funciona muy bien)
+    " autocmd BufWritePost $MYVIMRC,vimrc source $MYVIMRC
 augroup END
 " }}}
 " Si no existe el directorio de un fichero preguntar por su creación {{{
