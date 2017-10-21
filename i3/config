@@ -15,7 +15,7 @@ set $mod Mod4
 # is used in the bar {} block below.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:DejaVu Sans Mono 11
+font pango:DejaVu Sans Mono 12
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # The font above is very space-efficient, that is, it looks good, sharp and
@@ -163,6 +163,8 @@ bindsym $mod+shift+x exec i3lock-fancy
 exec --no-startup-id xbindkeys
 exec --no-startup-id nm-applet
 exec --no-startup-id xautolock -time 5 -locker /usr/bin/i3lock-fancy -detectsleep
+# exec --no-startup-id owncloud
+exec --no-startup-id xfce4-power-manager
 
 # Si trato de cambiar de Workspace al que se está usando actualmente, cambio
 # al último workspace en perder foco
