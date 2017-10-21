@@ -75,6 +75,9 @@ plugins=(git)
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
+
+unsetopt share_history
+
 source /usr/bin/virtualenvwrapper_lazy.sh
 
 # Try to load fzf
@@ -104,6 +107,8 @@ source /usr/bin/virtualenvwrapper_lazy.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias -g gr='| grep '
+alias -g gri='| grep -i '
 #
 # Recargar completado de comandos
 # Obtenido de https://bbs.archlinux.org/viewtopic.php?id=175388
