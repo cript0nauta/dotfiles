@@ -193,6 +193,9 @@ let g:ledger_maxwidth = 80
 " Plugin 'lambdatoast/elm.vim'
 Plugin 'elmcast/elm-vim'
 " }}}
+" Soporte para Ack {{{
+Plugin 'mileszs/ack.vim'
+" }}}
 " " Tomar notas en RestructuredText {{{
 " " Funciona medio mal y es bastante intrusivo
 " " Además puede ser inseguro 
