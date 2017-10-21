@@ -75,7 +75,7 @@ plugins=(git)
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
-source /usr/bin/virtualenvwrapper.sh
+source /usr/bin/virtualenvwrapper_lazy.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -106,5 +106,6 @@ source /usr/bin/virtualenvwrapper.sh
 # Obtenido de https://bbs.archlinux.org/viewtopic.php?id=175388
 # zstyle ':completion:*' rehash true
 export EDITOR=vim
-source /usr/local/bin/activate.sh
+export PS1="$PS1 "
+source $(which activate.sh)
 autoenv_init
