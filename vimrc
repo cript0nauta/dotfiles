@@ -51,8 +51,11 @@ let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
 " FZF (alternativa a ctrlp) {{{
 Plugin 'junegunn/fzf.vim'
 nmap ,e :GFiles<CR>
+nmap ,E :Files<CR>
 nmap ,b :Buffers<CR>
 nmap ,m :History<CR>
+nmap ,h :History:<CR>
+nnoremap <F5> :ALEToggle<CR>
 " }}}
 " Zen coding {{{
 Plugin 'mattn/emmet-vim'
@@ -127,6 +130,12 @@ let g:pymode_rope_goto_definition_cmd = 'e'
 " Usar también lint y pep257
 let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe', 'pylint', 'pep257']
 " }}}
+" {{{ ALE (linter tipo syntastic)
+Plugin 'w0rp/ale'
+let g:ale_fixers = {
+\   'python': ['yapf'],
+\}
+" }}
 " Autocompletado inteligente  {{{
 " Plugin 'Shougo/neocomplete.vim'
 " let g:neocomplete#enable_at_startup = 1 " Cargar al inicio
@@ -334,6 +343,9 @@ map tt :tabnew
 
 " Abrir en una nueva pestaña el buffer de la ventana actual
 map ts :tab split<CR>
+
+" Vertical split
+map ,s :only<CR>:vs<CR><C-l>
 
 " Movimiento
 map <C-S-Right> :tabn<CR>
