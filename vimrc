@@ -1,26 +1,33 @@
-set rtp+=~/dotfiles/vim
 " Instalación y configuración de plugins y su gestor {{{
+let g:using_nix_config = exists('g:using_nix_config')
 
-" Inicializar vundle {{{
-" Avoid modify this section, unless you are very sure of what you are doing
+" Inicializar vundle (si no se está usando nix) {{{
+if !g:using_nix_config
+    " Avoid modify this section, unless you are very sure of what you are doing
 
-" no vi-compatible
-set nocompatible
+    " no vi-compatible
+    set nocompatible
 
-" Setting up Vundle - the vim plugin bundler
-let iCanHazVundle=1
-let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
-if !filereadable(vundle_readme)
-    echo "Installing Vundle..."
-    echo ""
-    silent !mkdir -p ~/.vim/bundle
-    silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
-    let iCanHazVundle=0
+    " Setting up Vundle - the vim plugin bundler
+    let iCanHazVundle=1
+    let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
+    if !filereadable(vundle_readme)
+        echo "Installing Vundle..."
+        echo ""
+        silent !mkdir -p ~/.vim/bundle
+        silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
+        let iCanHazVundle=0
+    endif
+
+    filetype off
+    set rtp+=~/.vim/bundle/vundle/
+    call vundle#begin()
+else
+    function! Nop()
+    endfunction
+    command -nargs=* Plugin :call Nop()
+    command -nargs=* Bundle :call Nop()
 endif
-
-filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#begin()
 " }}}
 " Definir los plugins acá {{{
 "
@@ -219,15 +226,20 @@ Plugin 'mileszs/ack.vim'
 " let g:instant_rst_localhost_only=1
 " " }}}
 " }}}
+Plugin 'LnL7/vim-nix'
 " Finalizo definición de plugins {{{
-call vundle#end()
+if !g:using_nix_config
+    call vundle#end()
+endif
 " ============================================================================
 " Install plugins the first time vim runs
 
-if iCanHazVundle == 0
-    echo "Installing Bundles, please ignore key map error messages"
-    echo ""
-    :PluginInstall
+if !g:using_nix_config
+    if iCanHazVundle == 0
+        echo "Installing Bundles, please ignore key map error messages"
+        echo ""
+        :PluginInstall
+    endif
 endif
 filetype plugin indent on
 " }}}
@@ -239,13 +251,16 @@ if exists('g:bundles')
     let s:bundles = g:bundles
 elseif exists('g:vundle#bundles')
     let s:bundles = g:vundle#bundles
+elseif g:using_nix_config
+    " No requerido
+    let s:bundles = []
 else
     echo "No se pudieron obtener los plugins instalados."
     let s:bundles = []
 endif
 let g:installed_plugins = map(copy(s:bundles), 'v:val.name')
 function! g:PluginIsInstalled(plugin)
-    return index(g:installed_plugins, a:plugin) != -1
+    return g:using_nix_config || index(g:installed_plugins, a:plugin) != -1
 endfunction
 
 " }}}
