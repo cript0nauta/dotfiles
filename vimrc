@@ -95,11 +95,11 @@ Plugin 'fisadev/FixedTaskList.vim'
 " Surround {{{
 Plugin 'tpope/vim-surround'
 " }}}
-" Autoclose {{{
-Plugin 'Townk/vim-autoclose'
-" Fix to let ESC work as espected with Autoclose plugin
-let g:AutoClosePumvisible = {"ENTER": "\<C-Y>", "ESC": "\<ESC>"}
-" }}}
+" " Autoclose {{{
+" Plugin 'Townk/vim-autoclose'
+" " Fix to let ESC work as espected with Autoclose plugin
+" let g:AutoClosePumvisible = {"ENTER": "\<C-Y>", "ESC": "\<ESC>"}
+" " }}}
 " Indent text object {{{
 Plugin 'michaeljsmith/vim-indent-object'
 " }}}
