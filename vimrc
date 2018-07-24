@@ -38,23 +38,6 @@ Plugin 'gmarik/vundle'
 Plugin 'scrooloose/nerdtree'
 let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
 " }}}
-" " ctrlp: Code and files fuzzy finder {{{
-" Plugin 'kien/ctrlp.vim'
-" let g:ctrlp_map = ',e'
-
-" function! CtrlPWithSearchText(search_text, ctrlp_command_end)
-"     execute ':CtrlP' . a:ctrlp_command_end
-"     call feedkeys(a:search_text)
-" endfunction
-
-" " don't change working directory
-" let g:ctrlp_working_path_mode = 0
-" " ignore these files and folders on file finder
-" let g:ctrlp_custom_ignore = {
-"   \ 'dir':  '\v[\/](\.git|\.hg|\.svn)$',
-"   \ 'file': '\.pyc$\|\.pyo$',
-"   \ }
-" " }}}
 " FZF (alternativa a ctrlp) {{{
 Plugin 'junegunn/fzf.vim'
 nmap ,e :GFiles<CR>
@@ -429,38 +412,6 @@ endif
 if g:PluginIsInstalled('nerdtree')
     map <F3> :NERDTreeToggle<CR>
     nmap ,t :NERDTreeFind<CR>
-endif
-" }}}
-" Mappings generales de ctrlp {{{
-if g:PluginIsInstalled('ctrlp.vim')
-    if g:PluginIsInstalled('vim-ctrlp-cmdpalette')
-        " commands finder mapping
-        nmap ,c :CtrlPCmdPalette<CR>
-    endif
-
-    " tags (symbols) in current file finder mapping
-    nmap ,g :CtrlPBufTag<CR>
-
-    " tags (symbols) in all files finder mapping
-    nmap ,G :CtrlPBufTagAll<CR>
-
-    " general code finder in all files mapping
-    nmap ,f :CtrlPLine<CR>
-
-    " recent files finder mapping
-    nmap ,m :CtrlPMRUFiles<CR>
-
-    " buffer finder 
-    nmap ,b :CtrlPBuffer<CR>
-
-    " same as previous mappings, but calling with current word as default text
-    nmap ,wg :call CtrlPWithSearchText(expand('<cword>'), 'BufTag')<CR>
-    nmap ,wG :call CtrlPWithSearchText(expand('<cword>'), 'BufTagAll')<CR>
-    nmap ,wf :call CtrlPWithSearchText(expand('<cword>'), 'Line')<CR>
-    nmap ,we :call CtrlPWithSearchText(expand('<cword>'), '')<CR>
-    nmap ,pe :call CtrlPWithSearchText(expand('<cfile>'), '')<CR>
-    nmap ,wm :call CtrlPWithSearchText(expand('<cword>'), 'MRUFiles')<CR>
-    nmap ,wc :call CtrlPWithSearchText(expand('<cword>'), 'CmdPalette')<CR>
 endif
 " }}}
 " Mappings de python mode {{{
