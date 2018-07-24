@@ -109,7 +109,6 @@ source /usr/bin/virtualenvwrapper_lazy.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias -g gr='| grep '
 alias -g gri='| grep -i '
-alias -g less='| less'
 alias -g wcl='| wc -l'
 #
 # Recargar completado de comandos
