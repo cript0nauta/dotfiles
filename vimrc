@@ -87,7 +87,7 @@ let g:tagbar_autofocus = 1
 " "let g:airline_symbols.linenr = '⭡'
 " }}}
 " Powerline {{{
-Bundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+" Bundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 " }}}
 " Pending tasks list {{{
 Plugin 'fisadev/FixedTaskList.vim'
@@ -146,7 +146,7 @@ let g:ale_fixers = {
 " Snippets manager (ultisnips), dependencies, and snippets repo {{{
 Plugin 'honza/vim-snippets'
 " TODO: datos de autor, github, etc
-Plugin 'SirVer/ultisnips'
+" Plugin 'SirVer/ultisnips'
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
@@ -210,6 +210,7 @@ Plugin 'elmcast/elm-vim'
 " }}}
 " Soporte para Ack {{{
 Plugin 'mileszs/ack.vim'
+Plugin 'LnL7/vim-nix'
 " }}}
 " " Tomar notas en RestructuredText {{{
 " " Funciona medio mal y es bastante intrusivo
@@ -540,7 +541,7 @@ augroup end
 " Apariencia {{{
 
 " Setear colorscheme. usar 256 colores cuando sea posible{{{
-if &term =~? 'mlterm\|xterm\|xterm-256\|screen-256'
+if &term =~? 'mlterm\|xterm\|xterm-256\|screen-256\|st-256\|dvtm-256'
 	let &t_Co = 256
     set background=dark
     colorscheme Tomorrow-Night

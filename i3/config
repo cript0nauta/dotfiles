@@ -158,13 +158,14 @@ bar {
         status_command i3status
 }
 
-bindsym $mod+shift+x exec i3lock-fancy
+bindsym $mod+shift+x exec i3lock-pixeled
 
 exec --no-startup-id xbindkeys
 exec --no-startup-id nm-applet
-exec --no-startup-id xautolock -time 5 -locker /usr/bin/i3lock-fancy -detectsleep
+exec --no-startup-id xautolock -time 5 -locker i3lock-pixeled -detectsleep
 # exec --no-startup-id owncloud
 exec --no-startup-id xfce4-power-manager
+exec --no-startup-id unclutter
 
 # Si trato de cambiar de Workspace al que se está usando actualmente, cambio
 # al último workspace en perder foco

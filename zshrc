@@ -119,3 +119,4 @@ export EDITOR=vim
 export PS1="$PS1 "
 source $(which activate.sh)
 autoenv_init
+. /etc/profile.d/nix.sh
