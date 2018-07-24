@@ -1,5 +1,7 @@
 let
-  pkgs = import <nixpkgs> {};
+  pkgs = import <nixpkgs> {
+    config.st.conf = builtins.readFile ./st.config.def.h;
+  };
 
   vimrc = builtins.readFile ./vimrc;
   vim = pkgs.vim_configurable.customize {
@@ -19,7 +21,7 @@ let
     };
   };
 
-  inputs = [vim pkgs.fzf];
+  inputs = [vim pkgs.fzf pkgs.st];
 in
   if pkgs.lib.inNixShell then
     pkgs.mkShell { buildInputs = inputs; }
