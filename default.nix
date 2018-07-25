@@ -1,5 +1,11 @@
 let
-  pkgs = import <nixpkgs> {
+  pinned_pkgs =
+    fetchTarball {
+      url = https://github.com/NixOS/nixpkgs/archive/f5364327e8c6a35fdafe9f3c2f4b8e4e01fccace.tar.gz;
+      sha256 = "0p5q72qw5ppa674svpwx7g3gzlk6binyq9mb94xnrsfpmpgzdr10";
+    };
+
+  pkgs = import pinned_pkgs {
     config.st.conf = builtins.readFile ./st.config.def.h;
   };
 
