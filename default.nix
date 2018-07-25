@@ -22,7 +22,7 @@ let
       start = [
         nerdtree fzf-vim surround vim-indent-object python-mode ale vim-snippets
         UltiSnips vim-signify matchit-zip vim-colorschemes easymotion vim-repeat
-        commentary elm-vim vim-nix
+        commentary elm-vim vim-nix vim-ledger
         ];
     };
   };
