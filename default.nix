@@ -20,8 +20,8 @@ let
     '';
     vimrcConfig.packages.all = with pkgs.vimPlugins; {
       start = [
-        nerdtree fzf-vim surround vim-indent-object python-mode ale vim-snippets
-        UltiSnips vim-signify matchit-zip vim-colorschemes easymotion vim-repeat
+        nerdtree fzf-vim surround vim-indent-object ale vim-snippets
+        vim-signify matchit-zip vim-colorschemes easymotion vim-repeat
         commentary elm-vim vim-nix vim-ledger
         ];
     };

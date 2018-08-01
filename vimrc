@@ -93,33 +93,33 @@ Plugin 'tpope/vim-surround'
 " Indent text object {{{
 Plugin 'michaeljsmith/vim-indent-object'
 " }}}
-" Python mode  {{{
-" (indentation, doc, refactor, lints, code checking, motion and
-" operators, highlighting, run and ipdb breakpoints)
-Plugin 'klen/python-mode'
-" Uso python 3 por defecto
-let g:python_version = 'python3'
-" Chequear el código con lint en cada write
-let g:pymode_lint_on_write = 0
-" let g:pymode_lint_on_fly = 1
-let g:pymode_lint_signs = 0
+" " Python mode  {{{
+" " (indentation, doc, refactor, lints, code checking, motion and
+" " operators, highlighting, run and ipdb breakpoints)
+" Plugin 'klen/python-mode'
+" " Uso python 3 por defecto
+" let g:python_version = 'python3'
+" " Chequear el código con lint en cada write
+" let g:pymode_lint_on_write = 0
+" " let g:pymode_lint_on_fly = 1
+" let g:pymode_lint_signs = 0
 
-" don't fold python code on open
-let g:pymode_folding = 0
+" " don't fold python code on open
+" let g:pymode_folding = 0
 
-" cargo rope para tener un autocompletado excelente
-" lo comento porque parece no se para nada excelente
-" let g:pymode_rope = 1
-let g:pymode_rope = 0
-let g:pymode_rope_complete_on_dot = 0  " Esto rompe todo!
+" " cargo rope para tener un autocompletado excelente
+" " lo comento porque parece no se para nada excelente
+" " let g:pymode_rope = 1
+" let g:pymode_rope = 0
+" let g:pymode_rope_complete_on_dot = 0  " Esto rompe todo!
 
-" open definitions on same window, and custom mappings for definitions and
-" occurrences
-let g:pymode_rope_goto_definition_cmd = 'e'
+" " open definitions on same window, and custom mappings for definitions and
+" " occurrences
+" let g:pymode_rope_goto_definition_cmd = 'e'
 
-" Usar también lint y pep257
-let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe', 'pylint', 'pep257']
-" }}}
+" " Usar también lint y pep257
+" let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe', 'pylint', 'pep257']
+" " }}}
 " {{{ ALE (linter tipo syntastic)
 Plugin 'w0rp/ale'
 let g:ale_fixers = {
