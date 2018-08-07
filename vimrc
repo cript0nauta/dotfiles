@@ -515,7 +515,7 @@ augroup end
 if &term =~? 'mlterm\|xterm\|xterm-256\|screen-256\|st-256\|dvtm-256'
 	let &t_Co = 256
     set background=dark
-    colorscheme Tomorrow-Night
+    colorscheme solarized
 else
     colorscheme delek
 endif
