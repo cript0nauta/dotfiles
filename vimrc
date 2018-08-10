@@ -267,6 +267,7 @@ set shiftwidth=4
 " Sin esta línea el backspace anda muy mal en nixos
 " Es el default en el vimrc estándar
 set backspace=indent,eol,start
+set encoding=utf-8
 
 " always show status bar {{{
 set ls=2
