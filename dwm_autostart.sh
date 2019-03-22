@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
 
+echo $$ >/tmp/dwm_autostart.pid
+
 xsetroot -solid '#002b36'
 xautolock -time 5 -locker i3lock-pixeled -detectsleep &
 
-(
-    while true
-    do
-        xsetroot -name "$(acpi; date)"
-        sleep 1
-    done
-) &
+while true
+do
+    xsetroot -name "$(acpi) / $(date)"
+    sleep 1
+done
 
+rm /tmp/dwm_autostart.pid
