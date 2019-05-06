@@ -1,6 +1,5 @@
+{pkgs ? import <nixpkgs> {}, ...}:
 let
-  pkgs = import <nixpkgs> {};
-
   newGtk = 
     with pkgs;
     gtk3.overrideAttrs (attrs: {
@@ -9,7 +8,7 @@ let
 in
   with pkgs;
   replaceDependency {
-    drv = firefox;
+    drv = if pkgs.firefox == null then originalFirefox else pkgs.firefox;
     oldDependency = gtk3;
     newDependency = newGtk;
   }
