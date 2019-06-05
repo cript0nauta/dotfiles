@@ -32,4 +32,8 @@ in
   if pkgs.lib.inNixShell then
     pkgs.mkShell { buildInputs = inputs; }
   else
-    inputs
+    {
+      inherit vim;
+      inherit (pkgs) fzf st;
+      all = inputs;
+    }
