@@ -539,3 +539,5 @@ endif
 " }}}
 
 " }}}
+"
+set nomodeline
