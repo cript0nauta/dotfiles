@@ -289,6 +289,7 @@ set scrolloff=3
 " }}}
 " Habilitar uso del mouse  {{{
 set mouse=a
+set ttymouse=sgr  " Para que funcione el scroll con st
 " }}}
 " autocompletion of files and commands behaves like shell {{{
 " (complete only the common part, list the options that match)
