@@ -45,6 +45,7 @@ nmap ,E :Files<CR>
 nmap ,b :Buffers<CR>
 nmap ,m :History<CR>
 nmap ,h :History:<CR>
+nmap ,T :Tags<CR>
 nnoremap <F5> :ALEToggle<CR>
 " }}}
 " Zen coding {{{
