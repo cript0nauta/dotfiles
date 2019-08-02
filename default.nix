@@ -34,6 +34,6 @@ in
   else
     {
       inherit vim;
-      inherit (pkgs) fzf st;
+      inherit (pkgs) fzf;
       all = inputs;
     }
