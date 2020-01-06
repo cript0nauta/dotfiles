@@ -6,7 +6,6 @@ let
     };
 
   pkgs = import pinned_pkgs {
-    config.st.conf = builtins.readFile ./st.config.def.h;
   };
 
   vimrc = builtins.readFile ./vimrc;
@@ -27,7 +26,7 @@ let
     };
   };
 
-  inputs = [vim pkgs.fzf pkgs.st];
+  inputs = [vim pkgs.fzf];
 in
   if pkgs.lib.inNixShell then
     pkgs.mkShell { buildInputs = inputs; }
