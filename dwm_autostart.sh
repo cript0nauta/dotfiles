@@ -7,7 +7,7 @@ xautolock -time 5 -locker i3lock-pixeled -detectsleep &
 
 while true
 do
-    xsetroot -name "$(acpi) / $(date)"
+    xsetroot -name "$(acpi | tr '\n' ';') / $(date)"
     sleep 1
 done
 
