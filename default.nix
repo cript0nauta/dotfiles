@@ -6,6 +6,7 @@ let
     };
 
   pkgs = import pinned_pkgs {
+    overlays = [];  # Avoid infinite recursion
   };
 
   vimrc = builtins.readFile ./vimrc;
