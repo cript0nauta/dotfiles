@@ -2,7 +2,9 @@
 [include]
         path = ~/.gitconfig.local
 [alias]
-        co = checkout
+        ; co = checkout
+        s = switch
+        r = restore
 [core]
         # excludesfile = ~/.gitignore
         editor = vim
