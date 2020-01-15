@@ -543,3 +543,7 @@ endif
 " }}}
 "
 set nomodeline
+
+" Make panes resize when host window is resized
+" Taken from https://vi.stackexchange.com/questions/201/make-panes-resize-when-host-window-is-resized
+autocmd VimResized * wincmd =
