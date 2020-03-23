@@ -17,9 +17,9 @@ in {
     dontStrip = true;
   });
 
-  firefox = self.replaceDependency {
+  firefox = (self.replaceDependency {
     drv = super.firefox;
     oldDependency = super.gtk3;
     newDependency = newGtk;
-  };
+  }).overrideAttrs (_: { meta.priority = -2; });
 }
