@@ -27,6 +27,7 @@ in {
   });
 
   st = super.st.overrideAttrs (oldAttrs: { src = self.lib.cleanSource ~/st; });
+  slstatus = super.slstatus.overrideAttrs (oldAttrs: { src = self.lib.cleanSource ~/slstatus; });
 
   dwm = super.dwm.overrideAttrs (oldAttrs: {
     src = self.lib.cleanSource ~/dwm;
