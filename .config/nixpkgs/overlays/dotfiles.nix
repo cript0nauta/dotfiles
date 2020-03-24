@@ -19,15 +19,30 @@ in {
     '';
     vimrcConfig.packages.all = with self.vimPlugins; {
       start = [
-        nerdtree fzf-vim surround vim-indent-object ale vim-snippets
-        vim-signify matchit-zip vim-colorschemes easymotion vim-repeat
-        commentary elm-vim vim-nix vim-ledger Solarized ack-vim
-        ];
+        nerdtree
+        fzf-vim
+        surround
+        vim-indent-object
+        ale
+        vim-snippets
+        vim-signify
+        matchit-zip
+        vim-colorschemes
+        easymotion
+        vim-repeat
+        commentary
+        elm-vim
+        vim-nix
+        vim-ledger
+        Solarized
+        ack-vim
+      ];
     };
   });
 
   st = super.st.overrideAttrs (oldAttrs: { src = self.lib.cleanSource ~/st; });
-  slstatus = super.slstatus.overrideAttrs (oldAttrs: { src = self.lib.cleanSource ~/slstatus; });
+  slstatus = super.slstatus.overrideAttrs
+    (oldAttrs: { src = self.lib.cleanSource ~/slstatus; });
 
   dwm = super.dwm.overrideAttrs (oldAttrs: {
     src = self.lib.cleanSource ~/dwm;
@@ -41,5 +56,5 @@ in {
     newDependency = newGtk;
   });
 
-  grabc = self.callPackage ../grabc.nix {};
+  grabc = self.callPackage ../grabc.nix { };
 }
