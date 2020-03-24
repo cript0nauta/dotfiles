@@ -1,4 +1,4 @@
-with (import <nixpkgs> {});
+{ stdenv, fetchFromGitHub, xorg, coreutils }:
 stdenv.mkDerivation rec {
   buildInputs = [xorg.libX11];
   name = "grabc-${version}";
