@@ -41,8 +41,18 @@ in {
   });
 
   st = super.st.overrideAttrs (oldAttrs: { src = self.lib.cleanSource ~/st; });
-  slstatus = super.slstatus.overrideAttrs
-    (oldAttrs: { src = self.lib.cleanSource ~/slstatus; });
+
+  slstatus = super.slstatus.overrideAttrs (oldAttrs: {
+    src = self.lib.cleanSource ~/slstatus;
+    buildPhase = ''
+      make ${
+        if builtins.pathExists /sys/class/power_supply/BAT1 then
+          "CFLAGS=-DHAS_TWO_BATTERIES"
+        else
+          ""
+      }
+    '';
+  });
 
   dwm = super.dwm.overrideAttrs (oldAttrs: {
     src = self.lib.cleanSource ~/dwm;
