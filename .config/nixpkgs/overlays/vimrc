@@ -455,6 +455,8 @@ endif
 "autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
 "autocmd FileType htmldjango setlocal shiftwidth=2 tabstop=2 softtabstop=2
 "autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType c setlocal noexpandtab
+autocmd FileType cpp setlocal noexpandtab
 " }}}
 " Settings locales para el vimrc {{{
 augroup VimrcSettings
