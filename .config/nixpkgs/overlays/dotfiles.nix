@@ -67,4 +67,21 @@ in {
   });
 
   grabc = self.callPackage ../grabc.nix { };
+
+  mkScript = self.callPackage ../mk-script.nix { };
+
+  screenshot = self.mkScript {
+    name = "screenshot";
+    version = "0.1";
+    file = ../../../bin/screenshot.sh;
+    env = with self; [ bash maim xdotool dmenu xclip ];
+  };
+
+  lock = self.mkScript {
+    name = "lock";
+    version = "0.1";
+    file = ../../../bin/lock.sh;
+    env = with self; [ i3lock imagemagick scrot ];
+  };
+
 }
