@@ -84,4 +84,12 @@ in {
     env = with self; [ i3lock imagemagick scrot ];
   };
 
+  cmt = self.mkScript {
+    name = "cmt";
+    version = "0.1";
+    file = ../../../bin/cmt.py;
+    env = with self; [ python3 ];
+    interpreter = "python";
+  };
+
 }
