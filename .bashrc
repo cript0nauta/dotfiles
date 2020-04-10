@@ -5,6 +5,10 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+nixwhich(){
+    readlink -f "$(command -v "${1}")" | cut -d/ -f1-4
+}
+
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 export HISTFILESIZE=30000
