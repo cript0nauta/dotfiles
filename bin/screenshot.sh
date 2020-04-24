@@ -26,7 +26,8 @@ esac
 PERMANENT="$HOME/Pictures/"
 TEMPNAME="/tmp/screenshot-$(date '+%y%m%d-%H%M%S').png"
 
-OUTPUT="$({ echo clipboard; echo "$TEMPNAME"; echo "$PERMANENT"; } | dmenu)"
+# OUTPUT="$({ echo clipboard; echo "$TEMPNAME"; echo "$PERMANENT"; } | dmenu)"
+OUTPUT=clipboard
 
 case "$OUTPUT" in
     clipboard)
