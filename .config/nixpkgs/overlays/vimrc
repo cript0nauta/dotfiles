@@ -86,29 +86,15 @@ cabbrev w!! w !sudo tee "%"
 
 " Mappings relacionados a pestañas {{{
 
-" Mover (izquierda o derecha)
-map tm :tabm 
-
 " Abrir nueva pestaña
 map tt :tabnew 
-
-" Abrir en una nueva pestaña el buffer de la ventana actual
-map ts :tab split<CR>
 
 " Vertical split
 map ,s :only<CR>:vs<CR><C-l>
 
-" Movimiento
-map <C-S-Right> :tabn<CR>
-imap <C-S-Right> <ESC>:tabn<CR>
-map <C-S-Left> :tabp<CR>
-imap <C-S-Left> <ESC>:tabp<CR>
 " }}}
 " Habilitar/deshabilitar resultados de búsqueda resaltados {{{
 nnoremap <F4> :set hlsearch!<CR>
-" }}}
-" Uso C-m para incrementar en vez de C-a (lo uso para tmux) {{{
-nnoremap <C-m> <C-a>
 " }}}
 " Invertir ^ y 0 {{{
 nnoremap ^ 0
@@ -140,11 +126,6 @@ vnoremap "" "+
 vnoremap "+ ""
 " }}}
 
-" Comment this line to enable autocompletion preview window
-" (displays documentation related to the selected completion option)
-" Disabled by default because preview makes the window flicker
-" set completeopt-=preview
-
 " mappings de plugins {{{
 
 " ,t y F3 para nerdtree {{{
@@ -166,48 +147,19 @@ nnoremap <F5> :ALEToggle<CR>
 " }}}
 " Autocmds {{{
 " tab length exceptions on some file types {{{
-"autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
-"autocmd FileType htmldjango setlocal shiftwidth=2 tabstop=2 softtabstop=2
-"autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType c setlocal noexpandtab
 autocmd FileType cpp setlocal noexpandtab
 autocmd BufRead jrnl* setlocal textwidth=80
-" }}}
-" Settings locales para el vimrc {{{
-augroup VimrcSettings
-    autocmd!
-    autocmd BufRead $MYVIMRC,vimrc setlocal foldmethod=marker
-    " " Re-sourcear al guardar (no funciona muy bien)
-    " autocmd BufWritePost $MYVIMRC,vimrc source $MYVIMRC
-augroup END
-" }}}
-" Uso los .hbs como html {{{
-" TODO: Buscar plugins que lo manejen
-augroup EmberHBS
-    autocmd!
-    autocmd BufRead *.hbs set ft=html
-augroup end
 " }}}
 
 " }}}
 " Apariencia {{{
 
-" Setear colorscheme. usar 256 colores cuando sea posible{{{
-if &term =~? 'mlterm\|xterm\|xterm-256\|screen-256\|st-256\|dvtm-256'
-	let &t_Co = 256
-    set background=dark
-    colorscheme solarized
-else
-    colorscheme delek
-endif
-" }}}
+let &t_Co = 256
+set background=dark
+colorscheme solarized
 
-" Descomentar si se quiere usar un tema especial si 
-" se está usando gvim
-" if has('gui_running')
-"     colorscheme wombat
-" endif
-" Custom highlight para signify {{{
+" Custom highlight para signify
 highlight DiffAdd           cterm=bold ctermbg=none ctermfg=119
 highlight DiffDelete        cterm=bold ctermbg=none ctermfg=167
 highlight DiffChange        cterm=bold ctermbg=none ctermfg=227
