@@ -467,45 +467,6 @@ augroup VimrcSettings
     " autocmd BufWritePost $MYVIMRC,vimrc source $MYVIMRC
 augroup END
 " }}}
-" Si no existe el directorio de un fichero preguntar por su creación {{{
-" TODO: creo que no funciona
-function! EnsureDirExists ()
-    let required_dir = expand("%:h")
-    if !isdirectory(required_dir)
-        call AskQuit("Parent directory '" . required_dir . "' doesn't exist.",
-             \       "&Create it\nor &Quit?", 2)
-
-        try
-            call mkdir( required_dir, 'p' )
-        catch
-            call AskQuit("Can't create '" . required_dir . "'",
-            \            "&Quit\nor &Continue anyway?", 1)
-        endtry
-    endif
-endfunction
-augroup AutoMkdir
-    autocmd!
-    autocmd  BufNewFile  *  :call EnsureDirExists()
-augroup END
-" }}}
-" Mostrar páginas de ayuda en una nueva pestaña {{{
-
-let g:help_in_tabs = 1
-
-"Only apply to .txt files...
-augroup HelpInTabs
-    autocmd!
-    autocmd BufEnter  *.txt   call HelpInNewTab()
-augroup END
-
-"Only apply to help files...
-function! HelpInNewTab ()
-    if &buftype == 'help' && g:help_in_tabs && !(exists('t:help_in_tab') && t:help_in_tab)
-        "Convert the help window to a tab...
-        execute "normal \<C-W>T"
-    endif
-endfunction
-" }}}
 " Uso los .hbs como html {{{
 " TODO: Buscar plugins que lo manejen
 augroup EmberHBS
