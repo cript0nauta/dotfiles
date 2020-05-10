@@ -1,196 +1,13 @@
-function! Nop()
-endfunction
-command -nargs=* Plugin :call Nop()
-command -nargs=* Bundle :call Nop()
 " Definir los plugins acá {{{
 "
-" let Vundle manage Vundle {{{
-Plugin 'gmarik/vundle'
-" }}}
 " Better file browser: nerdtree {{{
-Plugin 'scrooloose/nerdtree'
 let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
 " }}}
-" FZF (alternativa a ctrlp) {{{
-Plugin 'junegunn/fzf.vim'
-nmap ,e :GFiles<CR>
-nmap ,E :Files<CR>
-nmap ,b :Buffers<CR>
-nmap ,m :History<CR>
-nmap ,h :History:<CR>
-nmap ,T :Tags<CR>
-nnoremap <F5> :ALEToggle<CR>
-" }}}
-" Zen coding {{{
-Plugin 'mattn/emmet-vim'
-" }}}
-" Git integration {{{
-" TODO: ver el de tpope que parece mejor
-Plugin 'motemen/git-vim'
-" }}}
-" Class/module browser {{{
-Plugin 'majutsushi/tagbar'
-let g:tagbar_autofocus = 1
-" }}}
-" Airline {{{
-" Plugin 'bling/vim-airline'
-" let g:airline_powerline_fonts = 0
-" let g:airline_theme = 'bubblegum'
-" let g:airline#extensions#whitespace#enabled = 0
-" " to use fancy symbols for airline, uncomment the following lines and use a
-" " patched font (more info on the README.rst)
-" "if !exists('g:airline_symbols')
-" "   let g:airline_symbols = {}
-" "endif
-" "let g:airline_left_sep = '⮀'
-" "let g:airline_left_alt_sep = '⮁'
-" "let g:airline_right_sep = '⮂'
-" "let g:airline_right_alt_sep = '⮃'
-" "let g:airline_symbols.branch = '⭠'
-" "let g:airline_symbols.readonly = '⭤'
-" "let g:airline_symbols.linenr = '⭡'
-" }}}
-" Powerline {{{
-" Bundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
-" }}}
-" Pending tasks list {{{
-Plugin 'fisadev/FixedTaskList.vim'
-" }}}
-" Surround {{{
-Plugin 'tpope/vim-surround'
-" }}}
-" " Autoclose {{{
-" Plugin 'Townk/vim-autoclose'
-" " Fix to let ESC work as espected with Autoclose plugin
-" let g:AutoClosePumvisible = {"ENTER": "\<C-Y>", "ESC": "\<ESC>"}
-" " }}}
-" Indent text object {{{
-Plugin 'michaeljsmith/vim-indent-object'
-" }}}
-" " Python mode  {{{
-" " (indentation, doc, refactor, lints, code checking, motion and
-" " operators, highlighting, run and ipdb breakpoints)
-" Plugin 'klen/python-mode'
-" " Uso python 3 por defecto
-" let g:python_version = 'python3'
-" " Chequear el código con lint en cada write
-" let g:pymode_lint_on_write = 0
-" " let g:pymode_lint_on_fly = 1
-" let g:pymode_lint_signs = 0
-
-" " don't fold python code on open
-" let g:pymode_folding = 0
-
-" " cargo rope para tener un autocompletado excelente
-" " lo comento porque parece no se para nada excelente
-" " let g:pymode_rope = 1
-" let g:pymode_rope = 0
-" let g:pymode_rope_complete_on_dot = 0  " Esto rompe todo!
-
-" " open definitions on same window, and custom mappings for definitions and
-" " occurrences
-" let g:pymode_rope_goto_definition_cmd = 'e'
-
-" " Usar también lint y pep257
-" let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe', 'pylint', 'pep257']
-" " }}}
-" {{{ ALE (linter tipo syntastic)
-Plugin 'w0rp/ale'
-let g:ale_fixers = {
-\   'python': ['yapf'],
-\}
-" }}
-" Autocompletado inteligente  {{{
-" Plugin 'Shougo/neocomplete.vim'
-" let g:neocomplete#enable_at_startup = 1 " Cargar al inicio
-" y snippets para este
-" Plugin 'Shougo/neosnippet'
-" Plugin 'Shougo/neosnippet-snippets'
-" }}}
-" Snippets manager (ultisnips), dependencies, and snippets repo {{{
-Plugin 'honza/vim-snippets'
-" TODO: datos de autor, github, etc
-" Plugin 'SirVer/ultisnips'
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-" }}}
-" Mostrar diffs de git y otros VCSs a la izquieda de los números de línea {{{
-Plugin 'mhinz/vim-signify'
-let g:signify_vcs_list = [ 'git' ]
-" }}}
-" Drag visual blocks arround {{{
-Plugin 'fisadev/dragvisuals.vim'
-" }}}
-" Code checker, lo desactivo porque tengo pymode {{{
-" Plugin 'scrooloose/syntastic'
-" " show list of errors and warnings on the current file
-" nmap <leader>e :Errors<CR>
-
-" " check also when just opened the file
-" let g:syntastic_check_on_open = 1
-
-" " don't put icons on the sign column (it hides the vcs status icons of signify)
-" let g:syntastic_enable_signs = 0
-" }}}
-" " Paint css colors with the real color {{{
-" Desactivado porque es muy lento en archivos grandes como los de ayuda. TODO:
-" activar solo para ciertos ficheros, evitar bindear en BufEnter
-" Plugin 'lilydjwg/colorizer'
-" " }}}
-" Search results counter {{{
-"Plugin 'IndexedSearch'
-" }}}
-" XML/HTML tags navigation {{{
-Plugin 'matchit.zip'
-" }}}
-" Pydocstring {{{
-" TODO: ver qué onda
-" Plugin 'pydocstring.vim'
-" }}}
-" Colorschemes {{{
-" Plugin 'altercation/vim-colors-solarized'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'chriskempson/base16-vim'
-let base16colorspace=256
-" }}}
-" Muy útil para moverse mejor {{{
-" TODO: ver incsearch
-Plugin 'easymotion/vim-easymotion'
-" }}}
-" Repetir surrounding y otras cosas con . {{{
-Plugin 'tpope/vim-repeat'
-" }}}
-" Comentar código {{{
-Plugin 'tpope/vim-commentary'
-" }}}
-" Soporte para ledger {{{
-Plugin 'ledger/vim-ledger'
-let g:ledger_maxwidth = 80
-" }}}
-" Soporte para Elm {{{
-" Plugin 'lambdatoast/elm.vim'
-Plugin 'elmcast/elm-vim'
-" }}}
-" Soporte para Ack {{{
-Plugin 'mileszs/ack.vim'
-Plugin 'LnL7/vim-nix'
-" }}}
-" " Tomar notas en RestructuredText {{{
-" " Funciona medio mal y es bastante intrusivo
-" " Además puede ser inseguro 
-" Plugin 'Rykka/riv.vim'
-" Plugin 'Rykka/InstantRst'
-" let g:instant_rst_localhost_only=1
-" " }}}
-" }}}
-Plugin 'LnL7/vim-nix'
 
 " }}}
-" Configuración de plugins (viejo) {{{
-" set rtp+=~/dotfiles/vim
-" runtime! plugin_configs/*.vim
-" }}}
+
+
+
 " Opciones del editor {{{
 
 " allow plugins by file type (required for plugins!) {{{
@@ -249,17 +66,6 @@ set history=500
 " }}}
 " No foldear al abrir un archivo con folds (comentado) {{{
 " set foldlevelstart=99
-" }}}
-" create needed directories if they don't exist {{{
-if !isdirectory(&backupdir)
-    call mkdir(&backupdir, "p")
-endif
-if !isdirectory(&directory)
-    call mkdir(&directory, "p")
-endif
-if !isdirectory(&undodir)
-    call mkdir(&undodir, "p")
-endif
 " }}}
 " Timeout para mappings y otros {{{
 set timeoutlen=300
@@ -348,6 +154,15 @@ nmap ,t :NERDTreeFind<CR>
 "
 " }}}
 
+" FZF (alternativa a ctrlp) {{{
+nmap ,e :GFiles<CR>
+nmap ,E :Files<CR>
+nmap ,b :Buffers<CR>
+nmap ,m :History<CR>
+nmap ,h :History:<CR>
+nmap ,T :Tags<CR>
+nnoremap <F5> :ALEToggle<CR>
+" }}}
 " }}}
 " Autocmds {{{
 " tab length exceptions on some file types {{{
