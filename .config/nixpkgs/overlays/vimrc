@@ -91,6 +91,8 @@ nnoremap "" "+
 nnoremap "+ ""
 vnoremap "" "+
 vnoremap "+ ""
+nnoremap "' "*
+vnoremap "' "*
 
 " configuración NERDTree
 let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
