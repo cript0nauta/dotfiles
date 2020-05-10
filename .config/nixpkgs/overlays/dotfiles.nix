@@ -12,7 +12,6 @@ in {
   my-vim = setPriority (-1) (self.vim_configurable.customize {
     name = "vim";
     vimrcConfig.customRC = ''
-      let g:using_nix_config = 1
       set rtp+=${self.fzf.out}/share/vim-plugins/${self.fzf.out.name}
 
       ${builtins.readFile ./vimrc}
