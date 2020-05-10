@@ -23,11 +23,8 @@ in {
         surround
         vim-indent-object
         ale
-        vim-snippets
         vim-signify
         matchit-zip
-        vim-colorschemes
-        easymotion
         vim-repeat
         commentary
         elm-vim
