@@ -1,58 +1,42 @@
-" Definir los plugins acá {{{
-"
-" Better file browser: nerdtree {{{
-let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
-" }}}
+syntax on
 
-" }}}
-
-
-
-" Opciones del editor {{{
-
-" allow plugins by file type (required for plugins!) {{{
+" allow plugins by file type (required for plugins!)
 filetype plugin on
-" }}}
-" tabs and spaces handling {{{
+
+" tabs and spaces handling
 set expandtab
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-" }}}
 
 " Sin esta línea el backspace anda muy mal en nixos
 " Es el default en el vimrc estándar
 set backspace=indent,eol,start
 set encoding=utf-8
 
-" always show status bar {{{
-set ls=2
-" }}}
-" Mostrar resultados de búsqueda a medida que se introduce el patrón {{{
+" always show status bar
+set laststatus=2
+
+" Mostrar resultados de búsqueda a medida que se introduce el patrón
 set incsearch
-" }}}
-" syntax highlight on {{{
-syntax on
-" }}}
-" show line numbers {{{
+
 set number
-" }}}
-" mostrar números de línea relativos a la posición del cursor {{{
+
+" mostrar números de línea relativos a la posición del cursor
 set relativenumber
-" }}}
-" when scrolling, keep cursor 3 lines away from screen border {{{
+
+" when scrolling, keep cursor 3 lines away from screen border
 set scrolloff=3
-" }}}
-" Habilitar uso del mouse  {{{
+
 set mouse=a
 set ttymouse=sgr  " Para que funcione el scroll con st
-" }}}
-" autocompletion of files and commands behaves like shell {{{
+
+" autocompletion of files and commands behaves like shell
 " (complete only the common part, list the options that match)
 " TODO: chequar alternativas
 set wildmode=list:longest 
-" }}}
-" better backup, swap and undos storage {{{
+
+" better backup, swap and undos storage
 set directory=~/.vim/dirs/tmp     " directory to place swap files in
 set backup                        " make backup files
 set backupdir=~/.vim/dirs/backups " where to put backup files
@@ -60,62 +44,45 @@ set undofile                      " persistent undos - undo after you re-open th
 set undodir=~/.vim/dirs/undos
 "set viminfo+=n~/.vim/dirs/viminfo
 set viminfo='100,<50,s10,h,n~/.vim/dirs/viminfo
-" }}}
-" Tamaño del historial  {{{
+
+" Tamaño del historial
 set history=500 
-" }}}
-" No foldear al abrir un archivo con folds (comentado) {{{
-" set foldlevelstart=99
-" }}}
-" Timeout para mappings y otros {{{
+
+" Timeout para mappings y otros
 set timeoutlen=300
-" }}}
-" Smart case en las búsquedas{{{
+
 set ignorecase
 " Si el patrón de búsqueda contiene mayúsculas -> set noignorecase temporal
 set smartcase
-" }}}
 
-" }}}
-" Defino comandos útiles {{{
-" save as sudo {{{
+" :w!! guarda con fichero con sudo
 cabbrev w!! w !sudo tee "%"
-" }}}
-" }}}
-" Mappings {{{
 
-" Mappings relacionados a pestañas {{{
-
-" Abrir nueva pestaña
 map tt :tabnew 
 
-" Vertical split
+" Mostrar el mismo fichero en dos paneles distintos
 map ,s :only<CR>:vs<CR><C-l>
 
-" }}}
-" Habilitar/deshabilitar resultados de búsqueda resaltados {{{
+" Habilitar/deshabilitar resaltado de resultados de búsqueda
 nnoremap <F4> :set hlsearch!<CR>
-" }}}
-" Invertir ^ y 0 {{{
+
+" Invertir ^ y 0
 nnoremap ^ 0
 nnoremap 0 ^
-" }}}
-" Expandir %% a la ruta del directorio actual {{{
+
+" Expandir %% a la ruta del directorio actual
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
-" }}}
-" Abrir/cerrar folds con <Space> {{{
-nmap <space> za
-" }}}
-" Mejor forma de moverse entre ventanas {{{
+
+" Mejor forma de moverse entre ventanas
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
-" }}}
-" Algún plugin mapea la tecla enter en modo normal a C-a, quito esto {{{
-unmap <CR>
-" }}}
-" Invertir "" y "+ {{{
+
+" Algún plugin mapea la tecla enter en modo normal a C-a, quito esto
+" unmap <CR>
+
+" Invertir "" y "+
 " Uso bastante la función de usar el registro del clipboard ("+). Si a los
 " mappings que los utilizan no se les pasa ningún registro utilizan el unnamed
 " ("") por lo que es poco probable que lo utilice de forma explícita.
@@ -124,36 +91,31 @@ nnoremap "" "+
 nnoremap "+ ""
 vnoremap "" "+
 vnoremap "+ ""
-" }}}
 
-" mappings de plugins {{{
-
-" ,t y F3 para nerdtree {{{
+" configuración NERDTree
+let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
 map <F3> :NERDTreeToggle<CR>
 nmap ,t :NERDTreeFind<CR>
-" }}}
 "
-" }}}
 
-" FZF (alternativa a ctrlp) {{{
+" Configuración de FZF
 nmap ,e :GFiles<CR>
 nmap ,E :Files<CR>
 nmap ,b :Buffers<CR>
 nmap ,m :History<CR>
 nmap ,h :History:<CR>
 nmap ,T :Tags<CR>
+
 nnoremap <F5> :ALEToggle<CR>
-" }}}
-" }}}
-" Autocmds {{{
-" tab length exceptions on some file types {{{
+
+" tab length exceptions on some file types
 autocmd FileType c setlocal noexpandtab
 autocmd FileType cpp setlocal noexpandtab
 autocmd BufRead jrnl* setlocal textwidth=80
-" }}}
 
-" }}}
-" Apariencia {{{
+" Make panes resize when host window is resized
+" Taken from https://vi.stackexchange.com/questions/201/make-panes-resize-when-host-window-is-resized
+autocmd VimResized * wincmd =
 
 let &t_Co = 256
 set background=dark
@@ -166,12 +128,5 @@ highlight DiffChange        cterm=bold ctermbg=none ctermfg=227
 highlight SignifySignAdd    cterm=bold ctermbg=237  ctermfg=119
 highlight SignifySignDelete cterm=bold ctermbg=237  ctermfg=167
 highlight SignifySignChange cterm=bold ctermbg=237  ctermfg=227
-" }}}
 
-" }}}
-"
 set nomodeline
-
-" Make panes resize when host window is resized
-" Taken from https://vi.stackexchange.com/questions/201/make-panes-resize-when-host-window-is-resized
-autocmd VimResized * wincmd =
