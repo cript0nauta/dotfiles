@@ -111,7 +111,6 @@ nnoremap <F5> :ALEToggle<CR>
 " tab length exceptions on some file types
 autocmd FileType c setlocal noexpandtab
 autocmd FileType cpp setlocal noexpandtab
-autocmd BufRead jrnl* setlocal textwidth=80
 
 " Make panes resize when host window is resized
 " Taken from https://vi.stackexchange.com/questions/201/make-panes-resize-when-host-window-is-resized

@@ -32,6 +32,11 @@ in {
         vim-ledger
         Solarized
         ack-vim
+        (self.vimUtils.buildVimPlugin {
+          pname = "vim-jrnl";
+          version = "0.1";
+          src = ../../../vim-jrnl;
+        })
       ];
     };
   });
