@@ -67,6 +67,10 @@ in {
     newDependency = newGtk;
   });
 
+  p7zip = super.p7zip.override {
+    enableUnfree = true;
+  };
+
   grabc = self.callPackage ../grabc.nix { };
 
   mkScript = self.callPackage ../mk-script.nix { };
