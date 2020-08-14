@@ -45,6 +45,16 @@ set undodir=~/.vim/dirs/undos
 "set viminfo+=n~/.vim/dirs/viminfo
 set viminfo='100,<50,s10,h,n~/.vim/dirs/viminfo
 
+if !isdirectory(&backupdir)
+    call mkdir(&backupdir, "p")
+endif
+if !isdirectory(&directory)
+    call mkdir(&directory, "p")
+endif
+if !isdirectory(&undodir)
+    call mkdir(&undodir, "p")
+endif
+
 " Tamaño del historial
 set history=500 
 
