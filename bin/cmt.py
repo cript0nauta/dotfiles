@@ -26,6 +26,9 @@ if 'stop' in sys.argv:
     os.system('pkill -f cmt.py')
     sys.exit(0)
 
+# Kill other cmt instances
+os.system(f'pgrep -f cmt.py | grep -v {os.getpid()} | xargs kill')
+
 if to_dwm:
     signal.signal(signal.SIGTERM, sigterm)
     signal.signal(signal.SIGINT, sigterm)
