@@ -73,6 +73,8 @@ in {
 
   grabc = self.callPackage ../grabc.nix { };
 
+  jrnl = self.python3Packages.callPackage ../jrnl.nix { };
+
   mkScript = self.callPackage ../mk-script.nix { };
 
   screenshot = self.mkScript {
