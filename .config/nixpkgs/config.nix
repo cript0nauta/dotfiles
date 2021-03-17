@@ -5,6 +5,6 @@ in
   allowUnfree = false;
   allowBroken = false;
   allowUnfreePredicate = pkg:
-    builtins.elem (lib.getName pkg) [ "p7zip" ];
+    builtins.elem (lib.getName pkg) [ "p7zip" "unrar" ];
   virtualisation.memorySize = 2048;
 }
