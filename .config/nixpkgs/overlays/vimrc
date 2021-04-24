@@ -119,6 +119,7 @@ nmap ,h :History:<CR>
 nmap ,T :Tags<CR>
 
 nnoremap <F5> :ALEToggle<CR>
+nnoremap <F6> :SignifyToggle<CR>
 
 " python: replace default indent for line continuations (from 8 to 4 spaces)
 let g:pyindent_open_paren = 'shiftwidth()'
