@@ -19,6 +19,7 @@ isinsidescript(){
 }
 
 alias ls='ls --color=auto'
+alias gcloc='cloc --vcs=git'
 type doas >/dev/null 2>&1 && alias sudo=doas
 PS1='[\u@\h \W]\$ '
 export HISTFILESIZE=30000
