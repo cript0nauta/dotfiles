@@ -99,4 +99,11 @@ in {
     interpreter = "python";
   };
 
+  notify = self.mkScript {
+    name = "notify";
+    version = "0.1";
+    file = ../../../bin/notify.sh;
+    env = with self; [ dzen2 ];
+  };
+
 }
