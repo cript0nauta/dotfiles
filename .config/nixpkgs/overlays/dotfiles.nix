@@ -79,7 +79,7 @@ in {
 
   screenshot = self.mkScript {
     name = "screenshot";
-    version = "0.1";
+    version = "0.2";
     file = ../../../bin/screenshot.sh;
     env = with self; [ bash maim xdotool dmenu xclip ];
   };

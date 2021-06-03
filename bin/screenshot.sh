@@ -31,7 +31,7 @@ OUTPUT=clipboard
 
 case "$OUTPUT" in
     clipboard)
-        maim $FLAGS | xclip -selection clipboard -t image/png
+        maim $FLAGS | tee /tmp/screenshot.png | xclip -selection clipboard -t image/png
         ;;
     *)
         maim $FLAGS "$OUTPUT"

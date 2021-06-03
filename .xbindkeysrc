@@ -9,3 +9,6 @@
 
 "xbacklight -1"
     Shift + XF86MonBrightnessDown
+
+"screenshot"
+    Print
