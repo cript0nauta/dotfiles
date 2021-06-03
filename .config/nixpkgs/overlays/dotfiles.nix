@@ -73,6 +73,15 @@ in {
 
   grabc = self.callPackage ../grabc.nix { };
 
+  grabc-dzen = self.mkScript {
+    name = "grabc-dzen";
+    version = "0.1";
+    env = with self; [ grabc dzen2 ];
+    file = self.writeScript "grabc-dzen" ''
+      P="$(grabc)"; echo "$P" | dzen2 -p
+    '';
+  };
+
   jrnl = self.python3Packages.callPackage ../jrnl.nix { };
 
   mkScript = self.callPackage ../mk-script.nix { };

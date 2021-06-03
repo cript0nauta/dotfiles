@@ -16,7 +16,5 @@ stdenv.mkDerivation rec {
       bindir=/bin \
       mandir=/share/man/man1 \
       install
-    cp ${./grabc_dwm.sh} $out/bin/grabc_dwm
-    substituteAllInPlace $out/bin/grabc_dwm
   '';
 }
