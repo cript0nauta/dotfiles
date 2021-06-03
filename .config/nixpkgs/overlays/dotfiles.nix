@@ -101,7 +101,7 @@ in {
 
   notify = self.mkScript {
     name = "notify";
-    version = "0.1";
+    version = "0.2";
     file = ../../../bin/notify.sh;
     env = with self; [ dzen2 ];
   };
