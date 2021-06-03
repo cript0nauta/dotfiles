@@ -2,6 +2,7 @@ syntax on
 
 " allow plugins by file type (required for plugins!)
 filetype plugin on
+filetype indent plugin on  " required since nixpkgs b3abdc9534a675da2aa7631d505a5f71ef30ecfa
 
 " tabs and spaces handling
 set expandtab
