@@ -26,7 +26,8 @@ def all_recent_files():
                 continue
         yield (filename, config[key])
 
-data = dict(all_recent_files())
+data = {fn: data for (fn, data) in all_recent_files()
+        if os.path.isfile(fn)}
 
 def file_ts(fn):
     return int(data[fn].get('time') or 0)
