@@ -115,4 +115,19 @@ in {
     env = with self; [ dzen2 ];
   };
 
+  zathura-recent = self.mkScript {
+    name = "zathura-recent";
+    version = "0.1";
+    file = ../../../bin/zathura_recent.py;
+    env = with self; [ python3 ];
+    interpreter = "python";
+  };
+
+  pdf = self.mkScript {
+    name = "pdf";
+    version = "0.1";
+    file =  ../../../bin/pdf.sh;
+    env = with self; [ dmenu zathura zathura-recent ];
+  };
+
 }
