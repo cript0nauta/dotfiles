@@ -8,7 +8,5 @@ pgrep xautolock || xautolock \
 slstatus &
 monit
 xbindkeys
-pgrep firefox || firefox &
-pgrep thunderbird || thunderbird &
-pgrep telegram || telegram-desktop &
 sct 5600
+dmenu_path >/dev/null
