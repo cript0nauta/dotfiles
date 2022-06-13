@@ -1,0 +1,41 @@
+commit 67b53c01fa390581fa07a416423c3770ff694aed
+Author: Matías Lang <yo@matiaslang.me>
+Date:   Mon Jun 13 20:34:07 2022 -0300
+
+    Revert "window, display: Don't force width/height limits"
+    
+    This reverts commit bb7b29dc44eebc0b21fb71674020b5a9379ec17b.
+
+diff --git a/src/ui/display-view.ui b/src/ui/display-view.ui
+index f2239ba..03259b2 100644
+--- a/src/ui/display-view.ui
++++ b/src/ui/display-view.ui
+@@ -64,12 +64,12 @@
+               <child>
+                 <object class="GtkScrolledWindow">
+                   <property name="visible">True</property>
+-                  <property name="min-content-width">980</property>
+-                  <property name="min-content-height">640</property>
+                   <child>
+                     <object class="GtkEventBox" id="event_box">
+                       <property name="visible">True</property>
+                       <property name="above-child">True</property>
++                      <property name="hexpand">True</property>
++                      <property name="vexpand">True</property>
+                       <signal name="event" handler="on_event_box_event"/>
+                     </object>
+                   </child>
+diff --git a/src/ui/window.ui b/src/ui/window.ui
+index 7e1c67c..ac23251 100644
+--- a/src/ui/window.ui
++++ b/src/ui/window.ui
+@@ -3,7 +3,8 @@
+   <requires lib="gtk+" version="3.20"/>
+     <template class="ConnectionsWindow" parent="GtkApplicationWindow">
+       <property name="title" translatable="yes">Connections</property>
+-      <property name="resizable">True</property>
++      <property name="default-width">980</property>
++      <property name="default-height">640</property>
+       <signal name="key-press-event" after="yes" handler="on_key_pressed"/>
+       <signal name="delete-event" handler="on_delete_event"/>
+ 

@@ -61,6 +61,10 @@ in {
     dontStrip = true;
   });
 
+  gnome-connections = super.gnome-connections.overrideAttrs (oldAttrs: {
+    patches = [ ./fix-gnome-connections.diff ];
+  });
+
   firefox = setPriority (-2) (self.replaceDependency {
     drv = super.firefox;
     oldDependency = super.gtk3;
