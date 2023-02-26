@@ -75,15 +75,6 @@ in {
     enableUnfree = true;
   };
 
-  ledger = super.ledger.overrideAttrs (oldAttrs: {
-    patches = [ (self.fetchpatch {
-      # fix --depth and reg comand
-      name = "1901.patch";
-      url = "https://github.com/ledger/ledger/pull/1901.patch";
-      sha256 = "1jqj24wwmqmxrckys5275s9b1pc489l6dqz9cn45byyr2biip19a";
-    }) ];
-  });
-
   grabc = self.callPackage ../grabc.nix { };
 
   grabc-dzen = self.mkScript {
