@@ -131,6 +131,7 @@ autocmd FileType c setlocal noexpandtab
 autocmd FileType cpp setlocal noexpandtab
 
 autocmd FileType ledger setlocal colorcolumn=35
+let g:ledger_is_hledger=v:false
 
 " Make panes resize when host window is resized
 " Taken from https://vi.stackexchange.com/questions/201/make-panes-resize-when-host-window-is-resized
